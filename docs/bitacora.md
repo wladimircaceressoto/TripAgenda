@@ -166,4 +166,90 @@ Próximo paso
 Notas
 
 - Se consolida la base completa del sistema antes de escribir código
-- Se logra un nivel de claridad que permite desarrollo sin improvisació
+- Se logra un nivel de claridad que permite desarrollo sin improvisación
+
+## Día 5 (20/3/2026)
+
+Trabajo realizado:
+
+Creación del repositorio en GitHub
+Inicialización del proyecto con Git
+Primer commit del sistema (estructura base)
+Subida del proyecto a repositorio remoto
+
+Corrección de estructura:
+uso de archivos .gitkeep para incluir carpetas vacías (backend y frontend)
+
+Aprendizaje de comandos Git fundamentales:
+
+git init
+git add
+git commit
+git push
+
+Comprensión del flujo de trabajo de Git:
+
+working directory
+staging area
+repository local
+repositorio remoto (GitHub)
+Desarrollo backend (inicio)
+Instalación de entorno Python
+Resolución de problema con pip (uso de ensurepip)
+
+Instalación de dependencias:
+
+fastapi
+uvicorn
+
+Creación del archivo main.py en carpeta /backend
+Implementación de servidor básico con FastAPI
+Creación del primer endpoint (/)
+Ejecución del servidor local con uvicorn
+Verificación en navegador de funcionamiento correcto
+Exploración de documentación automática (/docs)
+
+Flujo completo:
+
+usuario → frontend → API → backend → respuesta
+Uso correcto de IA como asistente, no como ejecutor total
+
+Decisiones importantes:
+
+Se adopta Python + FastAPI como backend principal
+Se decide mantener frontend simple (sin React en etapa inicial)
+Se establece metodología de trabajo basada en:
+uso de IA guiado
+comprensión del código
+revisión y mentoría
+Se define GitHub como repositorio oficial del proyecto y portafolio
+
+Estado actual del proyecto:
+
+Fase de documentación: COMPLETADA 
+Backend iniciado correctamente 
+Servidor funcionando localmente 
+Primer endpoint operativo 
+
+Próximo paso:
+
+→ Crear endpoint /viajes
+→ Simular almacenamiento de datos en memoria
+→ Construir estructura base de API REST
+
+Notas
+Se consolida el inicio real del desarrollo del sistema
+
+## Día 6 (21/3/2026)
+
+Qué se hizo:
+
+Implementación de arquitectura backend (models, routes, services)
+Creación de base de datos en PostgreSQL
+Conexión de FastAPI con base de datos
+Implementación de CRUD persistente
+Uso de SQLAlchemy como ORM
+
+Logro importante:
+
+Primer sistema funcional con persistencia real de datos

@@ -1,13 +1,19 @@
 from fastapi import APIRouter
 from models.viaje import Viaje
 from services import viaje_service
+from datetime import date
+from typing import Optional
 
 router = APIRouter()
 
 # GET todos
 @router.get("/viajes")
-def get_viajes():
-    return viaje_service.get_viajes()
+def get_viajes(
+    fecha: Optional[date] = None,
+    fecha_inicio: Optional[date] = None,
+    fecha_fin: Optional[date] = None,
+):
+    return viaje_service.get_viajes(fecha, fecha_inicio, fecha_fin)
 
 # GET por id
 @router.get("/viajes/{id}")

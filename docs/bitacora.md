@@ -253,3 +253,44 @@ Uso de SQLAlchemy como ORM
 Logro importante:
 
 Primer sistema funcional con persistencia real de datos
+
+## Día 7 (23/3/2026)
+
+Qué se hizo
+
+Implementación de validaciones avanzadas en modelo Pydantic (Viaje)
+
+Restricción de campos:
+
+  valor > 0
+  origen y destino no vacíos
+  estado con valores controlados
+
+Implementación de lógica de conflicto horario en creación y actualización de viajes
+
+Corrección de conflicto en UPDATE excluyendo el mismo ID
+
+Implementación de filtro por fecha exacta en endpoint GET /viajes
+
+Implementación de filtro por rango de fechas (fecha_inicio / fecha_fin)
+
+Validación de combinaciones inválidas de parámetros en filtros
+
+Decisiones importantes
+
+Se define estrategia de filtros dinámica en un solo endpoint (no múltiples endpoints)
+
+Se decide postergar filtros por empresa hasta implementar entidad Empresa
+
+Se define que el modelo Viaje queda cerrado para MVP funcional
+
+Estado actual
+
+Backend funcional con:
+
+CRUD completo
+Validaciones
+Persistencia en base de datos
+Filtros de consulta
+Entidad Viaje finalizada para MVP
+Próximo paso: diseño e implementación de entidad Empresa

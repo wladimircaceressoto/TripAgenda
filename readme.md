@@ -1,26 +1,71 @@
 # TripAgenda
 
-TripAgenda es un sistema de agenda de viajes diseñado para conductores independientes.
+TripAgenda es un sistema de agenda de viajes diseñado para conductores independientes que gestionan traslados de pasajeros.
 
-El objetivo del software es permitir registrar, organizar y visualizar carreras o traslados desde el teléfono móvil.
+## Descripción
+
+El sistema permite registrar, organizar y visualizar viajes desde una aplicación web, reemplazando el uso de cuadernos o registros manuales.
 
 ## Problema que resuelve
 
 Muchos conductores gestionan sus viajes mediante:
 
-- WhatsApp
-- llamadas
-- cuadernos
+* WhatsApp
+* llamadas
+* cuadernos
 
-Esto puede generar desorden o choques de horario.
+Esto genera:
 
-TripAgenda permite centralizar toda la información en una agenda digital.
+* desorden en la agenda
+* dificultad para visualizar horarios
+* riesgo de errores en pagos
 
-## Usuario objetivo
+TripAgenda centraliza toda esta información en una agenda digital.
 
-Conductores independientes de transporte:
+## Tecnologías utilizadas
 
-- traslados al aeropuerto
-- transporte turístico
-- taxis ejecutivos
-- conductores privados
+* Python
+* FastAPI
+* PostgreSQL
+* SQLAlchemy
+
+## Arquitectura
+
+El backend está estructurado en:
+
+* `routes/` → endpoints
+* `services/` → lógica de negocio
+* `models/` → modelos de datos
+* `database.py` → conexión a base de datos
+
+## Funcionalidades actuales
+
+* Crear viajes
+* Obtener lista de viajes
+* Obtener viaje por ID
+* Actualizar viajes
+* Eliminar viajes
+* Persistencia en base de datos
+
+## Cómo ejecutar el proyecto
+
+1. Clonar repositorio
+2. Ir a carpeta backend:
+
+    ```
+    cd backend
+    ```
+3. Instalar dependencias:
+
+    ```
+    python -m pip install -r requirements.txt
+    ```
+4. Ejecutar servidor:
+
+    ```
+    python -m uvicorn main:app --reload
+    ```
+
+## Estado del proyecto
+
+En desarrollo — MVP backend en construcción

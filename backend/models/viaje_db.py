@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Date, Time
+from sqlalchemy import Column, Integer, String, Date, Time, ForeignKey
+from sqlalchemy.orm import relationship
 from models.db_base import Base
 
 class ViajeDB(Base):
@@ -10,5 +11,6 @@ class ViajeDB(Base):
     valor = Column(Integer, nullable=False)
     fecha = Column(Date, nullable=False)
     hora = Column(Time, nullable=False)
-    empresa = Column(String, nullable=True)
+    empresa_id = Column(Integer, ForeignKey('empresas.id'), nullable=True)
+    empresa = relationship('EmpresaDB', back_populates='viajes')
     estado = Column(String, default="pendiente")

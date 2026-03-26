@@ -8,5 +8,5 @@ class Viaje(BaseModel):
     valor: conint(gt=0) = Field(..., description="Valor debe ser mayor a 0")
     fecha: date
     hora: time
-    empresa: Optional[str] = None
+    empresa_id: Optional[int] = None
     estado: Literal["pendiente", "realizado", "cancelado"] = "pendiente" 

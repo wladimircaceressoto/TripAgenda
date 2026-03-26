@@ -294,3 +294,32 @@ Persistencia en base de datos
 Filtros de consulta
 Entidad Viaje finalizada para MVP
 Próximo paso: diseño e implementación de entidad Empresa
+
+## Día 8 (25/3/2026)
+
+### Qué se hizo
+
+* Inicio de implementación de entidad Empresa
+* Creación de modelo SQLAlchemy `EmpresaDB`
+* Definición de relación entre Empresa y Viaje (1 a muchos)
+* Modificación de `ViajeDB` para incluir `empresa_id` como ForeignKey
+* Corrección de arquitectura separando modelos Pydantic y SQLAlchemy
+* Ajuste del modelo `Viaje` para usar `empresa_id` en lugar de objeto Empresa
+
+### Aprendizajes importantes
+
+* Diferencia entre modelos Pydantic (entrada/salida) y modelos SQLAlchemy (base de datos)
+* Importancia de usar IDs para relaciones en bases de datos relacionales
+* Evitar duplicación de modelos en archivos incorrectos
+* Comprensión de relaciones entre tablas (ForeignKey + relationship)
+
+### Pendiente
+
+* Crear archivo para generación de tablas en base de datos (`create_tables.py`)
+* Verificar estructura en PostgreSQL (tabla empresas y columna empresa_id)
+* Implementar CRUD de Empresa
+
+### Próximo paso
+
+* Crear tablas correctamente en la base de datos
+* Iniciar endpoints para entidad Empresa

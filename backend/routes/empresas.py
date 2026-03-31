@@ -20,3 +20,13 @@ def get_empresa_por_id(id: int):
 @router.post("/empresas", response_model=EmpresaResponse)
 def create_empresa(empresa: EmpresaCreate):
     return empresa_service.create_empresa(empresa)
+
+# PUT actualizar empresa
+@router.put("/empresas/{id}", response_model=EmpresaResponse)
+def update_empresa(id: int, empresa: EmpresaCreate):
+    return empresa_service.update_empresa(id, empresa)
+
+# DELETE eliminar empresa
+@router.delete("/empresas/{id}")
+def delete_empresa(id: int):
+    return empresa_service.delete_empresa(id)

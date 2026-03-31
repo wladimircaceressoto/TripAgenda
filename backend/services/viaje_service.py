@@ -1,11 +1,9 @@
-from operator import index
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from database import SessionLocal
 from models.viaje_db import ViajeDB
-from fastapi import HTTPException
 
-def get_viajes(fecha=None, fecha_inicio=None, fecha_fin=None):
+def get_viajes(fecha=None, fecha_inicio=None, fecha_fin=None, empresa_id=None):
     db: Session = SessionLocal()
 
     # Validaciones de parámetros
@@ -17,13 +15,21 @@ def get_viajes(fecha=None, fecha_inicio=None, fecha_fin=None):
         db.close()
         raise HTTPException(status_code=400, detail="Debe proporcionar ambos 'fecha_inicio' y 'fecha_fin' para búsqueda por rango")
 
-    # Lógica de consulta
+    # Construcción dinámica de la consulta
+    query = db.query(ViajeDB)
+
+    # Aplicar filtro de fecha si viene
     if fecha:
-        viajes = db.query(ViajeDB).filter(ViajeDB.fecha == fecha).all()
+        query = query.filter(ViajeDB.fecha == fecha)
     elif fecha_inicio and fecha_fin:
-        viajes = db.query(ViajeDB).filter(ViajeDB.fecha >= fecha_inicio, ViajeDB.fecha <= fecha_fin).all()
-    else:
-        viajes = db.query(ViajeDB).all()
+        query = query.filter(ViajeDB.fecha >= fecha_inicio, ViajeDB.fecha <= fecha_fin)
+
+    # Aplicar filtro de empresa_id si viene
+    if empresa_id:
+        query = query.filter(ViajeDB.empresa_id == empresa_id)
+
+    # Ejecutar consulta
+    viajes = query.all()
 
     db.close()
     return viajes
@@ -58,7 +64,7 @@ def create_viaje(viaje):
         valor=viaje.valor,
         fecha=viaje.fecha,
         hora=viaje.hora,
-        empresa=viaje.empresa,
+        empresa_id=viaje.empresa_id,
         estado=viaje.estado
     )
 
@@ -94,7 +100,7 @@ def update_viaje(id: int, viaje_actualizado):
     viaje.valor = viaje_actualizado.valor
     viaje.fecha = viaje_actualizado.fecha
     viaje.hora = viaje_actualizado.hora
-    viaje.empresa = viaje_actualizado.empresa
+    viaje.empresa_id = viaje_actualizado.empresa_id
     viaje.estado = viaje_actualizado.estado
 
     db.commit()

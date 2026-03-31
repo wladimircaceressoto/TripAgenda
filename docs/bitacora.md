@@ -323,3 +323,70 @@ Próximo paso: diseño e implementación de entidad Empresa
 
 * Crear tablas correctamente en la base de datos
 * Iniciar endpoints para entidad Empresa
+
+## Día 9 (30/3/2026)
+
+### ✅ Qué se hizo
+
+* Creación de entidad Empresa (modelo SQLAlchemy + tabla en PostgreSQL)
+* Implementación de relación entre Viaje y Empresa (ForeignKey + relationship)
+* Corrección de arquitectura separando modelos Pydantic y SQLAlchemy
+* Ajuste del modelo Viaje para trabajar con empresa_id en lugar de objeto Empresa
+* Creación de script para generación de tablas en base de datos
+* Actualización manual de tabla viajes para incluir empresa_id
+
+### 🔧 CRUD Empresa
+
+* Implementación de endpoints:
+
+  * GET /empresas
+  * GET /empresas/{id}
+  * POST /empresas
+* Validación de empresa duplicada por nombre
+* Manejo de errores 404 y 400
+
+### 🧠 Mejora de arquitectura
+
+* Separación de schemas:
+
+  * EmpresaCreate (entrada)
+  * EmpresaResponse (salida)
+* Uso de response_model en rutas para mejorar documentación y control de respuesta
+
+### 🔍 Filtros avanzados en Viajes
+
+* Implementación de filtro por empresa_id
+* Integración con filtros existentes:
+
+  * fecha exacta
+  * rango de fechas
+* Construcción dinámica de queries con SQLAlchemy
+
+### 🧠 Aprendizajes clave
+
+* Importancia de usar IDs para relaciones en bases de datos relacionales
+* Diferencia entre validación backend (422) y lógica de negocio
+* Manejo de queries dinámicas con múltiples filtros
+* Importancia del frontend en evitar errores de entrada (uso de listas en lugar de texto libre)
+
+### ⚠️ Pendientes
+
+* Implementar PUT y DELETE para Empresa
+* Eliminar columna antigua "empresa" en tabla viajes
+* Mejorar schemas de Viaje (Create / Response)
+* Variables de entorno (.env)
+* Limpieza final del backend
+
+### 🚀 Estado actual
+
+* Backend funcional con:
+
+  * CRUD completo de Viajes
+  * CRUD parcial de Empresa
+  * Filtros avanzados
+  * Relación entre entidades
+* Proyecto en fase avanzada de MVP
+
+### 📊 Progreso estimado
+
+* Backend MVP: ~93% completado

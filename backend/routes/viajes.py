@@ -12,8 +12,9 @@ def get_viajes(
     fecha: Optional[date] = None,
     fecha_inicio: Optional[date] = None,
     fecha_fin: Optional[date] = None,
+    empresa_id: Optional[int] = None,
 ):
-    return viaje_service.get_viajes(fecha, fecha_inicio, fecha_fin)
+    return viaje_service.get_viajes(fecha, fecha_inicio, fecha_fin, empresa_id)
 
 # GET por id
 @router.get("/viajes/{id}")

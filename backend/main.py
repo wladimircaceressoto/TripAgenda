@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import viajes
+from routes import viajes, empresas
 
 app = FastAPI()
 
@@ -9,6 +9,7 @@ def read_root():
 
 # Conectar rutas
 app.include_router(viajes.router)
+app.include_router(empresas.router)
 
 from database import engine
 
